@@ -56,7 +56,7 @@ export function StepOnboarding({ answers, setAnswer }: StepOnboardingProps) {
       {/* Q9: Onboarding clarity (scale 1-5) */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q9.label')}
+          {t('q9.label')} <span className="text-destructive">*</span>
         </Label>
         <ScaleSelector
           value={answers.q9 as number | undefined}
@@ -69,7 +69,7 @@ export function StepOnboarding({ answers, setAnswer }: StepOnboardingProps) {
       {/* Q10: Onboarding speed (scale 1-5) */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q10.label')}
+          {t('q10.label')} <span className="text-destructive">*</span>
         </Label>
         <ScaleSelector
           value={answers.q10 as number | undefined}

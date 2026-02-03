@@ -57,7 +57,7 @@ export function StepLanding({ answers, setAnswer }: StepLandingProps) {
       {/* Q5: First impression (scale 1-5) */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q5.label')}
+          {t('q5.label')} <span className="text-destructive">*</span>
         </Label>
         <ScaleSelector
           value={answers.q5 as number | undefined}
@@ -70,7 +70,7 @@ export function StepLanding({ answers, setAnswer }: StepLandingProps) {
       {/* Q6: Emotional reaction */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q6.label')}
+          {t('q6.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q6 as string | undefined}
@@ -104,7 +104,7 @@ export function StepLanding({ answers, setAnswer }: StepLandingProps) {
       {/* Q7: Clear value proposition */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q7.label')}
+          {t('q7.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q7 as string | undefined}

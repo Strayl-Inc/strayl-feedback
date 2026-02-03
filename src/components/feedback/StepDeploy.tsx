@@ -59,7 +59,7 @@ export function StepDeploy({ answers, setAnswer }: StepDeployProps) {
       {/* Q24: Deployment experience */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q24.label')}
+          {t('q24.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q24 as string | undefined}
@@ -108,7 +108,7 @@ export function StepDeploy({ answers, setAnswer }: StepDeployProps) {
       {/* Q25: Deployment speed */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q25.label')}
+          {t('q25.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q25 as string | undefined}

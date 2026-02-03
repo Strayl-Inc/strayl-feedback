@@ -74,7 +74,7 @@ export function StepInterface({ answers, setAnswer }: StepInterfaceProps) {
       {/* Q19: Interface intuitiveness */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q19.label')}
+          {t('q19.label')} <span className="text-destructive">*</span>
         </Label>
         <ScaleSelector
           value={answers.q19 as number | undefined}
@@ -87,7 +87,7 @@ export function StepInterface({ answers, setAnswer }: StepInterfaceProps) {
       {/* Q20: Visual design */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q20.label')}
+          {t('q20.label')} <span className="text-destructive">*</span>
         </Label>
         <ScaleSelector
           value={answers.q20 as number | undefined}
@@ -100,7 +100,7 @@ export function StepInterface({ answers, setAnswer }: StepInterfaceProps) {
       {/* Q21: Bugs encountered */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q21.label')}
+          {t('q21.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q21 as string | undefined}

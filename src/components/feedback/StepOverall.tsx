@@ -58,7 +58,7 @@ export function StepOverall({ answers, setAnswer }: StepOverallProps) {
       {/* Q31: Overall satisfaction */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q31.label')}
+          {t('q31.label')} <span className="text-destructive">*</span>
         </Label>
         <ScaleSelector
           value={answers.q31 as number | undefined}
@@ -71,7 +71,7 @@ export function StepOverall({ answers, setAnswer }: StepOverallProps) {
       {/* Q32: NPS score (0-10) */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q32.label')}
+          {t('q32.label')} <span className="text-destructive">*</span>
         </Label>
         <ScaleSelector
           value={answers.q32 as number | undefined}

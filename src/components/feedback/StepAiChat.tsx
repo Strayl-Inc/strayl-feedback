@@ -58,7 +58,7 @@ export function StepAiChat({ answers, setAnswer }: StepAiChatProps) {
       {/* Q12: AI response quality (scale 1-5) */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q12.label')}
+          {t('q12.label')} <span className="text-destructive">*</span>
         </Label>
         <ScaleSelector
           value={answers.q12 as number | undefined}
@@ -71,7 +71,7 @@ export function StepAiChat({ answers, setAnswer }: StepAiChatProps) {
       {/* Q13: AI understanding (scale 1-5) */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q13.label')}
+          {t('q13.label')} <span className="text-destructive">*</span>
         </Label>
         <ScaleSelector
           value={answers.q13 as number | undefined}
@@ -84,7 +84,7 @@ export function StepAiChat({ answers, setAnswer }: StepAiChatProps) {
       {/* Q14: Response speed */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q14.label')}
+          {t('q14.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q14 as string | undefined}
@@ -118,7 +118,7 @@ export function StepAiChat({ answers, setAnswer }: StepAiChatProps) {
       {/* Q15: Hallucination frequency */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q15.label')}
+          {t('q15.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q15 as string | undefined}
@@ -152,7 +152,7 @@ export function StepAiChat({ answers, setAnswer }: StepAiChatProps) {
       {/* Q16: Used advanced features */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q16.label')}
+          {t('q16.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q16 as string | undefined}
@@ -197,7 +197,7 @@ export function StepAiChat({ answers, setAnswer }: StepAiChatProps) {
       {/* Q17: Would recommend */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q17.label')}
+          {t('q17.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q17 as string | undefined}

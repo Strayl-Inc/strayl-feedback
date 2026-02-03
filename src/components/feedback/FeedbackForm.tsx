@@ -42,7 +42,7 @@ const STEPS = [
 
 // Required questions per step (non-text questions only — text fields are optional)
 const REQUIRED_PER_STEP: string[][] = [
-  ['q1', 'q2', 'q3', 'q4'],           // About
+  ['email', 'q1', 'q2', 'q3', 'q4'],   // About
   ['q5', 'q6', 'q7'],                  // Landing
   ['q9', 'q10'],                       // Onboarding
   ['q12', 'q13', 'q14', 'q15', 'q16', 'q17'], // AI Chat

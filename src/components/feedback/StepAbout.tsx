@@ -13,10 +13,23 @@ export function StepAbout({ answers, setAnswer }: StepAboutProps) {
 
   return (
     <div className="space-y-8">
+      {/* Email */}
+      <div className="space-y-3">
+        <Label className="text-base font-medium mb-3 block">
+          {t('email.label')} <span className="text-destructive">*</span>
+        </Label>
+        <Input
+          type="email"
+          value={(answers.email as string) ?? ''}
+          onChange={(e) => setAnswer('email', e.target.value)}
+          placeholder={t('email.placeholder')}
+        />
+      </div>
+
       {/* Q1: Role */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q1.label')}
+          {t('q1.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q1 as string | undefined}
@@ -54,7 +67,7 @@ export function StepAbout({ answers, setAnswer }: StepAboutProps) {
       {/* Q2: Experience level */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q2.label')}
+          {t('q2.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q2 as string | undefined}
@@ -88,7 +101,7 @@ export function StepAbout({ answers, setAnswer }: StepAboutProps) {
       {/* Q3: How did you find us */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q3.label')}
+          {t('q3.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q3 as string | undefined}
@@ -126,7 +139,7 @@ export function StepAbout({ answers, setAnswer }: StepAboutProps) {
       {/* Q4: Have you used similar products */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q4.label')}
+          {t('q4.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q4 as string | undefined}

@@ -32,6 +32,12 @@ const resources = {
         overall: 'Overall Assessment',
       },
 
+      // Email
+      email: {
+        label: 'Enter the email associated with your Strayl account',
+        placeholder: 'your@email.com',
+      },
+
       // Section 1: About You (Q1-Q4)
       q1: {
         label: 'What is your role?',
@@ -351,6 +357,11 @@ const resources = {
         overall: 'Общая оценка',
       },
 
+      email: {
+        label: 'Введите почту, с которой у вас аккаунт в Strayl',
+        placeholder: 'ваша@почта.com',
+      },
+
       q1: {
         label: 'Какова ваша роль?',
         options: {
@@ -659,6 +670,11 @@ const resources = {
         deploy: 'Деплой',
         value: 'Құндылық',
         overall: 'Жалпы баға',
+      },
+
+      email: {
+        label: 'Strayl аккаунтыңызға байланысты электрондық поштаңызды енгізіңіз',
+        placeholder: 'сіздің@пошта.com',
       },
 
       q1: {

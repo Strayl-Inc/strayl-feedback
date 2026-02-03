@@ -43,7 +43,7 @@ export function StepValue({ answers, setAnswer }: StepValueProps) {
       {/* Q27: Speed comparison */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q27.label')}
+          {t('q27.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q27 as string | undefined}
@@ -77,7 +77,7 @@ export function StepValue({ answers, setAnswer }: StepValueProps) {
       {/* Q28: Would you continue using */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q28.label')}
+          {t('q28.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q28 as string | undefined}
@@ -111,7 +111,7 @@ export function StepValue({ answers, setAnswer }: StepValueProps) {
       {/* Q29: Willingness to pay */}
       <div className="space-y-3">
         <Label className="text-base font-medium mb-3 block">
-          {t('q29.label')}
+          {t('q29.label')} <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           value={answers.q29 as string | undefined}
