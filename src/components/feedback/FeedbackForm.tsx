@@ -1,12 +1,14 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardPanel } from '@/components/ui/card'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Loader } from '@/components/ui/loader'
 import { ChevronLeft, ChevronRight, Send } from 'lucide-react'
 import { submitFeedback } from '@/server/submit-feedback'
+import { TablerGiftIcon } from '@/components/icons/tabler-gift'
 
 import { StepAbout } from './StepAbout'
 import { StepLanding } from './StepLanding'
@@ -40,16 +42,28 @@ const STEPS = [
   StepOverall,
 ]
 
+type RewardStatus =
+  | 'granted'
+  | 'already_granted'
+  | 'user_not_found'
+  | 'invalid_email'
+  | 'reward_error'
+
+type RewardResult = {
+  status: RewardStatus
+  awardedCredits: number
+}
+
 // Required questions per step (non-text questions only — text fields are optional)
 const REQUIRED_PER_STEP: string[][] = [
-  ['email', 'q1', 'q2', 'q3', 'q4'],   // About
-  ['q5', 'q6', 'q7'],                  // Landing
-  ['q9', 'q10'],                       // Onboarding
+  ['email', 'q1', 'q2', 'q3', 'q4'], // About
+  ['q5', 'q6', 'q7'], // Landing
+  ['q9', 'q10'], // Onboarding
   ['q12', 'q13', 'q14', 'q15', 'q16', 'q17'], // AI Chat
-  ['q19', 'q20', 'q21'],               // Interface
-  ['q24', 'q25'],                       // Deploy
-  ['q27', 'q28', 'q29'],               // Value
-  ['q31', 'q32'],                       // Overall
+  ['q19', 'q20', 'q21'], // Interface
+  ['q24', 'q25'], // Deploy
+  ['q27', 'q28', 'q29'], // Value
+  ['q31', 'q32'], // Overall
 ]
 
 function isAnswered(value: unknown): boolean {
@@ -66,6 +80,22 @@ export function FeedbackForm() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [showErrors, setShowErrors] = useState(false)
+  const [entrySource, setEntrySource] = useState<string | undefined>(undefined)
+  const [entryReturnTo, setEntryReturnTo] = useState<string | undefined>(undefined)
+  const [submissionId, setSubmissionId] = useState<string | undefined>(undefined)
+  const [returnTo, setReturnTo] = useState('https://app.strayl.dev/dashboard')
+  const [reward, setReward] = useState<RewardResult>({
+    status: 'reward_error',
+    awardedCredits: 0,
+  })
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const source = params.get('source')
+    const returnToFromQuery = params.get('returnTo')
+    setEntrySource(source ?? undefined)
+    setEntryReturnTo(returnToFromQuery ?? undefined)
+  }, [])
 
   const setAnswer = useCallback((key: string, value: unknown) => {
     setAnswers((prev) => ({ ...prev, [key]: value }))
@@ -105,13 +135,18 @@ export function FeedbackForm() {
     }
     setSubmitting(true)
     try {
-      await submitFeedback({
+      const result = await submitFeedback({
         data: {
           answers,
           language: i18n.language,
           userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+          source: entrySource,
+          returnTo: entryReturnTo,
         },
       })
+      setReward(result.reward)
+      setSubmissionId(result.submissionId)
+      setReturnTo(result.returnTo)
       setSubmitted(true)
     } catch (err) {
       console.error('Failed to submit feedback:', err)
@@ -121,7 +156,13 @@ export function FeedbackForm() {
   }
 
   if (submitted) {
-    return <ThankYou />
+    return (
+      <ThankYou
+        reward={reward}
+        submissionId={submissionId}
+        returnTo={returnTo}
+      />
+    )
   }
 
   const CurrentStepComponent = STEPS[currentStep]
@@ -142,6 +183,12 @@ export function FeedbackForm() {
         </div>
         <Progress value={progressValue} />
       </div>
+
+      <Alert variant="info">
+        <TablerGiftIcon className="size-4" />
+        <AlertTitle>{t('feedbackBonus.title')}</AlertTitle>
+        <AlertDescription>{t('feedbackBonus.subtitle')}</AlertDescription>
+      </Alert>
 
       {/* Section title */}
       <div>

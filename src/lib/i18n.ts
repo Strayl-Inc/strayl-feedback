@@ -322,11 +322,36 @@ const resources = {
         placeholder: 'Anything else you want to share...',
       },
 
+      feedbackBonus: {
+        title: 'Complete feedback and get +50 credits',
+        subtitle: 'One-time bonus for an existing Strayl account email.',
+      },
+
       // Thank you screen
       thankYou: {
         title: 'Thank you!',
         message: 'Your feedback is invaluable. It will help us make Strayl better for everyone.',
         subtitle: 'We appreciate your time and effort.',
+        back_to_strayl: 'Back to Strayl',
+        reward: {
+          credits_label: 'credits added',
+          granted: {
+            title: 'Bonus granted',
+            message: 'You received a one-time feedback bonus.',
+          },
+          already_granted: {
+            title: 'Bonus already claimed',
+            message: 'This one-time bonus has already been granted for your account.',
+          },
+          user_not_found: {
+            title: 'Bonus unavailable',
+            message: 'Bonus is available only for an existing Strayl account email.',
+          },
+          reward_error: {
+            title: 'Bonus processing delayed',
+            message: 'Feedback is saved. Bonus processing is temporarily delayed.',
+          },
+        },
       },
     },
   },
@@ -638,10 +663,35 @@ const resources = {
         placeholder: 'Что ещё хотите сказать...',
       },
 
+      feedbackBonus: {
+        title: 'Пройдите фидбек и получите +50 кредитов',
+        subtitle: 'Одноразовый бонус для email существующего аккаунта Strayl.',
+      },
+
       thankYou: {
         title: 'Спасибо!',
         message: 'Ваш отзыв бесценен. Он поможет нам сделать Strayl лучше для всех.',
         subtitle: 'Мы ценим ваше время и усилия.',
+        back_to_strayl: 'Вернуться в Strayl',
+        reward: {
+          credits_label: 'кредитов добавлено',
+          granted: {
+            title: 'Бонус начислен',
+            message: 'Вы получили одноразовый бонус за прохождение фидбека.',
+          },
+          already_granted: {
+            title: 'Бонус уже получен',
+            message: 'Этот одноразовый бонус уже был начислен для вашего аккаунта.',
+          },
+          user_not_found: {
+            title: 'Бонус недоступен',
+            message: 'Бонус доступен только для email существующего аккаунта Strayl.',
+          },
+          reward_error: {
+            title: 'Начисление задерживается',
+            message: 'Фидбек сохранен. Начисление бонуса временно задерживается.',
+          },
+        },
       },
     },
   },
@@ -953,10 +1003,35 @@ const resources = {
         placeholder: 'Тағы бір нәрсе бөліскіңіз келсе...',
       },
 
+      feedbackBonus: {
+        title: 'Фидбекті аяқтап, +50 кредит алыңыз',
+        subtitle: 'Бір реттік бонус тек бар Strayl аккаунтының email-ына беріледі.',
+      },
+
       thankYou: {
         title: 'Рахмет!',
         message: 'Сіздің пікіріңіз аса құнды. Ол Strayl-ды барлығы үшін жақсартуға көмектеседі.',
         subtitle: 'Уақытыңыз бен күшіңізді бағалаймыз.',
+        back_to_strayl: 'Strayl-ға оралу',
+        reward: {
+          credits_label: 'кредит қосылды',
+          granted: {
+            title: 'Бонус берілді',
+            message: 'Сіз фидбек үшін бір реттік бонус алдыңыз.',
+          },
+          already_granted: {
+            title: 'Бонус бұрын берілген',
+            message: 'Бұл бір реттік бонус аккаунтыңызға бұрын берілген.',
+          },
+          user_not_found: {
+            title: 'Бонус қолжетімсіз',
+            message: 'Бонус тек бар Strayl аккаунтының email-ына беріледі.',
+          },
+          reward_error: {
+            title: 'Бонус кешіктірілді',
+            message: 'Фидбек сақталды. Бонус өңдеу уақытша кешіктірілді.',
+          },
+        },
       },
     },
   },
