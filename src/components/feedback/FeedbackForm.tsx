@@ -93,8 +93,15 @@ export function FeedbackForm() {
     const params = new URLSearchParams(window.location.search)
     const source = params.get('source')
     const returnToFromQuery = params.get('returnTo')
+    const emailFromQuery = params.get('email')?.trim()
     setEntrySource(source ?? undefined)
     setEntryReturnTo(returnToFromQuery ?? undefined)
+    if (emailFromQuery) {
+      setAnswers((prev) => ({
+        ...prev,
+        email: prev.email ?? emailFromQuery,
+      }))
+    }
   }, [])
 
   const setAnswer = useCallback((key: string, value: unknown) => {
