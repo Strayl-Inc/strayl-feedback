@@ -42,6 +42,8 @@ const STEPS = [
   StepOverall,
 ]
 
+const SUPPORTED_LANGS = new Set(['en', 'ru', 'kk'])
+
 type RewardStatus =
   | 'granted'
   | 'already_granted'
@@ -94,15 +96,19 @@ export function FeedbackForm() {
     const source = params.get('source')
     const returnToFromQuery = params.get('returnTo')
     const emailFromQuery = params.get('email')?.trim()
+    const langFromQuery = params.get('lang')?.trim().toLowerCase()
     setEntrySource(source ?? undefined)
     setEntryReturnTo(returnToFromQuery ?? undefined)
+    if (langFromQuery && SUPPORTED_LANGS.has(langFromQuery)) {
+      void i18n.changeLanguage(langFromQuery)
+    }
     if (emailFromQuery) {
       setAnswers((prev) => ({
         ...prev,
         email: prev.email ?? emailFromQuery,
       }))
     }
-  }, [])
+  }, [i18n])
 
   const setAnswer = useCallback((key: string, value: unknown) => {
     setAnswers((prev) => ({ ...prev, [key]: value }))
