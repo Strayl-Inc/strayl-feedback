@@ -28,6 +28,7 @@ type SubmitResult = {
 }
 
 const DEFAULT_APP_URL = 'https://app.strayl.dev'
+const FEEDBACK_REWARD_APP_URL = 'https://app.strayl.dev'
 const INTERNAL_SOURCE = 'strayl-feedback'
 
 function normalizeEmail(value: unknown): string {
@@ -102,14 +103,14 @@ async function requestFeedbackReward(input: {
   email: string
   submissionId?: string
 }): Promise<{ status: RewardStatus; awardedCredits: number }> {
-  const apiBase = process.env.FEEDBACK_REWARD_API_URL?.trim()
   const secret = process.env.FEEDBACK_REWARD_SECRET?.trim()
 
-  if (!apiBase || !secret) {
+  if (!secret) {
+    console.error('[feedback-reward] Missing FEEDBACK_REWARD_SECRET')
     return { status: 'reward_error', awardedCredits: 0 }
   }
 
-  const endpoint = `${apiBase.replace(/\/$/, '')}/api/internal/feedback-reward`
+  const endpoint = `${FEEDBACK_REWARD_APP_URL}/api/internal/feedback-reward`
 
   try {
     const response = await fetch(endpoint, {
@@ -126,6 +127,10 @@ async function requestFeedbackReward(input: {
     })
 
     if (!response.ok) {
+      console.error('[feedback-reward] Reward endpoint failed', {
+        endpoint,
+        status: response.status,
+      })
       return { status: 'reward_error', awardedCredits: 0 }
     }
 
@@ -153,7 +158,11 @@ async function requestFeedbackReward(input: {
           ? data.awardedCredits
           : 0,
     }
-  } catch {
+  } catch (error) {
+    console.error('[feedback-reward] Request failed', {
+      endpoint,
+      error: error instanceof Error ? error.message : String(error),
+    })
     return { status: 'reward_error', awardedCredits: 0 }
   }
 }
