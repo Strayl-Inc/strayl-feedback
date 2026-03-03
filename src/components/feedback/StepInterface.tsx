@@ -137,7 +137,7 @@ export function StepInterface({ answers, setAnswer }: StepInterfaceProps) {
           {t('q22.label')}
         </Label>
         <div className="space-y-2">
-          {(['ai_chat', 'code_editor', 'preview', 'deploy', 'file_tree', 'version_history'] as const).map(
+          {(['ai_chat', 'preview', 'deploy', 'staging', 'all_in_one', 'chatgpt_pro', 'ai_sandbox'] as const).map(
             (option) => (
               <label key={option} className="flex items-center gap-2 cursor-pointer">
                 <Checkbox

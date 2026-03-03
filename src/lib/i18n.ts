@@ -213,11 +213,12 @@ const resources = {
         label: 'Which features did you find most useful?',
         options: {
           ai_chat: 'AI Chat',
-          code_editor: 'Code Editor',
           preview: 'Live Preview',
           deploy: 'One-click Deploy',
-          file_tree: 'File Tree',
-          version_history: 'Version History',
+          staging: 'Staging by default (AI doesn\'t touch production)',
+          all_in_one: 'Built-in deploy, database & auth',
+          chatgpt_pro: 'ChatGPT Pro integration',
+          ai_sandbox: 'AI agent sandbox (own computer)',
         },
       },
       q23: {
@@ -557,11 +558,12 @@ const resources = {
         label: 'Какие функции оказались наиболее полезными?',
         options: {
           ai_chat: 'AI-чат',
-          code_editor: 'Код-редактор',
           preview: 'Предпросмотр',
           deploy: 'Деплой в один клик',
-          file_tree: 'Дерево файлов',
-          version_history: 'История версий',
+          staging: 'Staging по умолчанию (AI не трогает прод)',
+          all_in_one: 'Встроенные деплой, БД и авторизация',
+          chatgpt_pro: 'Интеграция с ChatGPT Pro',
+          ai_sandbox: 'Песочница AI-агента (свой компьютер)',
         },
       },
       q23: {
@@ -897,11 +899,12 @@ const resources = {
         label: 'Қай мүмкіндіктер ең пайдалы болды?',
         options: {
           ai_chat: 'AI-чат',
-          code_editor: 'Код-редактор',
           preview: 'Тікелей алдын ала қарау',
           deploy: 'Бір рет басу арқылы деплой',
-          file_tree: 'Файл ағашы',
-          version_history: 'Нұсқалар тарихы',
+          staging: 'Staging әдепкі бойынша (AI продты өзгертпейді)',
+          all_in_one: 'Кіріктірілген деплой, ДБ және аутентификация',
+          chatgpt_pro: 'ChatGPT Pro интеграциясы',
+          ai_sandbox: 'AI-агент құмсалғышы (өз компьютері)',
         },
       },
       q23: {
